@@ -1,3 +1,6 @@
+html{
+  font-size: 62.5%;
+}
 body {
   padding: 0;
   margin: 0;
@@ -7,6 +10,12 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+
+}
+html a {
+  text-decoration: none;
+  color: black;
 }
 body{
   background-color: black ;

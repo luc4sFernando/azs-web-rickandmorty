@@ -7,6 +7,11 @@ const fetcher = (query, variables = {}) =>
 
 export const EPISODIES_QUERY = `query($page:Int){
     episodes(page: $page){
+      info{
+        pages
+        next
+        prev
+      }
       results{
         id
         episode 

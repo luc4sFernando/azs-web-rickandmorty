@@ -1,8 +1,20 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import { keyframes } from 'styled-components';
+const hidenbutton = keyframes`
+from {
+ opacity: 0;
+}
+80% {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`;
 export const BannerContainer = styled.div`
   width: 100%;
-
+  height: 100%;
   background-image: url(pic3.jpg);
   background-position: center top;
   background-size: cover;
@@ -10,7 +22,7 @@ export const BannerContainer = styled.div`
 export const BannerColor = styled.div`
   width: 100%;
   height: 100%;
-  background-color: rgba(55, 55, 55, 0.67);
+  background-color: rgba(55, 55, 55, 0.57);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -41,10 +53,10 @@ export const BannerTextWrapper = styled.div`
 `;
 export const BannerTitle = styled.h2`
   font-family: 'Barlow', sans-serif;
-  font-size: 3.2rem;
+  font-size: 6.2rem;
   font-weight: 500;
   letter-spacing: -0.2rem;
-  height: 20px;
+  margin-bottom: 10px;
 `;
 export const BannerDescriptionWrapper = styled.div`
   display: flex;
@@ -52,8 +64,9 @@ export const BannerDescriptionWrapper = styled.div`
   align-items: center;
 `;
 export const BannerDescription = styled.p`
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 300;
+  margin-bottom: 20px;
 `;
 export const BannerICon = styled.div`
   width: 10px;
@@ -62,14 +75,19 @@ export const BannerICon = styled.div`
   margin-right: 10px;
 `;
 
-export const BannerMeteorTop = styled.img`
-  width: 500px;
-  position: absolute;
-  top: -350px;
-`;
-export const BannerMeteorBottom = styled.img`
-  z-index: 1;
-  position: absolute;
-  left: 0;
-  width: 300px;
+export const BannerButton = styled(Link)`
+  background-color: white;
+  color: green;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  font-size: 1.5rem;
+  animation: ${hidenbutton} 5s;
+
+  &:hover {
+    border-radius: 15px;
+  }
 `;

@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../Navbar';
 import {
+  BannerButton,
   BannerColor,
   BannerContainer,
   BannerContentWrapper,
@@ -10,7 +11,7 @@ import {
   BannerTextWrapper,
   BannerTitle,
 } from './style';
-
+import Typed from 'react-typed';
 const Banner = () => {
   return (
     <BannerContainer>
@@ -18,11 +19,20 @@ const Banner = () => {
         <Navbar />
         <BannerContentWrapper>
           <BannerTextWrapper>
-            <BannerTitle>Ricky and Morty API</BannerTitle>
+            <BannerTitle>Ryck and Morty API</BannerTitle>
             <BannerDescriptionWrapper>
               <BannerICon />
-              <BannerDescription>Buscar episodio pelo nome.</BannerDescription>
+
+              <BannerDescription>
+                <Typed
+                  strings={[
+                    'Bem vindo, aqui você fica sabendo tudo sobre rick and morty',
+                  ]}
+                  typeSpeed={50}
+                />
+              </BannerDescription>
             </BannerDescriptionWrapper>
+            <BannerButton to='/episodes'>Lista de Episódios</BannerButton>
           </BannerTextWrapper>
         </BannerContentWrapper>
       </BannerColor>
