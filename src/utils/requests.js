@@ -23,5 +23,20 @@ export const EPISODIES_QUERY = `query($page:Int){
       }
     }
   }`;
+export const EPISODIE_QUERY = `query($id: ID!){
+  episode(id: $id){
+    id
+    name
+    air_date
+    episode
+    characters{
+      id
+      image
+      name
+      species
+      status
+    }
+    }
+  }`;
 
 export default fetcher;

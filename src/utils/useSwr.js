@@ -1,9 +1,16 @@
-// import React from 'react'
+import axios from 'axios';
+import useSWR from 'swr';
 
-// const useSwr = () => {
-//   return (
-//     <div>useSwr</div>
-//   )
-// }
+const END_POINT = 'https://rickandmortyapi.com/graphql';
 
-// export default useSwr
+const fetcher = (query, variables = {}) =>
+  axios.post(END_POINT, { query, variables }).then((res) => res.data);
+
+const useSwr = (query, variables) => {
+  console.log(variables);
+  const { data, error } = useSWR([query, variables], fetcher);
+
+  return [data, error];
+};
+
+export default useSwr;

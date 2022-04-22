@@ -28,7 +28,7 @@ const Navbar = () => {
     <NavContainer>
       <Header>
         <NavLink to='/'>
-          <Brand src='b1.png' alt='brand' />
+          <Brand src='/b1.png' alt='brand' />
         </NavLink>
         <NavLink to='/episodes'>Episodes</NavLink>
         <NavLink to='#'>Favoritos</NavLink>

@@ -15,7 +15,7 @@ to {
 export const BannerContainer = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url(pic3.jpg);
+  background-image: url(/pic3.jpg);
   background-position: center top;
   background-size: cover;
 `;
@@ -86,8 +86,10 @@ export const BannerButton = styled(Link)`
   height: 40px;
   font-size: 1.5rem;
   animation: ${hidenbutton} 5s;
-
+  border-radius: 15px;
   &:hover {
-    border-radius: 15px;
+    transition: all 0.5s;
+    background-color: green;
+    color: white;
   }
 `;
