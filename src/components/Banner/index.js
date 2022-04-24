@@ -1,43 +1,27 @@
 import React from 'react';
-import Navbar from '../Navbar';
-import {
-  BannerButton,
-  BannerColor,
-  BannerContainer,
-  BannerContentWrapper,
-  BannerDescription,
-  BannerDescriptionWrapper,
-  BannerICon,
-  BannerTextWrapper,
-  BannerTitle,
-} from './style';
-import Typed from 'react-typed';
-const Banner = () => {
+import PropTypes from 'prop-types'; // ES6
+import { Container, Title, Subtitle, Picture, TitleWrapper } from './style';
+const Banner = ({ title, subtitle, imageUrl }) => {
   return (
-    <BannerContainer>
-      <BannerColor>
-        <Navbar />
-        <BannerContentWrapper>
-          <BannerTextWrapper>
-            <BannerTitle>Ryck and Morty API</BannerTitle>
-            <BannerDescriptionWrapper>
-              <BannerICon />
-
-              <BannerDescription>
-                <Typed
-                  strings={[
-                    'Bem vindo, aqui você fica sabendo tudo sobre os episódios de rick and morty.',
-                  ]}
-                  typeSpeed={50}
-                />
-              </BannerDescription>
-            </BannerDescriptionWrapper>
-            <BannerButton to='/episodes'>Lista de Episódios</BannerButton>
-          </BannerTextWrapper>
-        </BannerContentWrapper>
-      </BannerColor>
-    </BannerContainer>
+    <>
+      <Container>
+        <Picture url={imageUrl}>
+          {title && (
+            <TitleWrapper>
+              <Title>{title}</Title>
+              <Subtitle>{subtitle}</Subtitle>
+            </TitleWrapper>
+          )}
+        </Picture>
+      </Container>
+    </>
   );
+};
+
+Banner.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  imageUrl: PropTypes.string,
 };
 
 export default Banner;

@@ -1,12 +1,16 @@
 import React from 'react';
-import { LoadingContainer } from './style';
+import { LoadingWrapper, Loading, LoadingContainer } from './style';
 
-const Loading = () => {
+const LoadingComponent = () => {
   return (
     <LoadingContainer>
-      <h1>Loading</h1>
+      <LoadingWrapper>
+        <Loading></Loading>
+        <Loading></Loading>
+        <Loading></Loading>
+      </LoadingWrapper>
     </LoadingContainer>
   );
 };
 
-export default Loading;
+export default LoadingComponent;

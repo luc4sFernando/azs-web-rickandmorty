@@ -7,7 +7,6 @@ export const ControlContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
-  margin-top: 100px;
 `;
 export const Wrapper = styled.div`
   display: flex;

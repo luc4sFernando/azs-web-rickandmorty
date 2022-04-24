@@ -4,37 +4,12 @@ import Navbar from '../components/Navbar';
 import { useParams } from 'react-router-dom';
 import useSwr from '../utils/useSwr';
 import { EPISODIE_QUERY } from '../utils/requests';
+import LoadingComponent from '../components/Loading/';
+import Banner from '../components/Banner';
 
 const Container = styled.div`
   width: 100%;
   background-color: white;
-`;
-const Banner = styled.div`
-  width: 100%;
-  max-width: 1290px;
-  height: 600px;
-  margin: 0 auto;
-  background-image: url(/banner_episode.jpg);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-`;
-const TitleWrapper = styled.div``;
-
-const Title = styled.h1`
-  font-size: 8.4rem;
-  color: white;
-  margin: 0 20px 0 0;
-  font-family: 'Helvetica';
-  letter-spacing: -2px;
-`;
-const Subtitle = styled.p`
-  font-size: 1.8rem;
-  color: gray;
 `;
 
 const PersonsWrapper = styled.div`
@@ -100,37 +75,38 @@ const Episode = () => {
 
   const [data] = useSwr(EPISODIE_QUERY, { id: params.id });
 
-  const episode = data?.data.episode.characters;
+  const characters = data?.data.episode.characters;
+  const episode = data?.data.episode;
+  console.log(episode);
   return (
     <>
-      <Navbar />
-      <Container>
-        <Banner>
-          <TitleWrapper>
-            <Title>{data?.data.episode.name}</Title>
-            <Subtitle>
-              {data?.data.episode.episode} | {data?.data.episode.air_date}.
-            </Subtitle>
-          </TitleWrapper>
-        </Banner>
-        <PageTitleWrapper>
-          <PageTitle>Personagens</PageTitle>
-        </PageTitleWrapper>
-        <PersonsWrapper>
-          {episode &&
-            episode.map((item) => (
-              <PersonCard key={item.id}>
-                <img src={item.image} alt='card' />
-                <CardContent>
-                  <CardTitle>{item.name}</CardTitle>
-                  <CardParagraph>
-                    {item.species}, {item.status}.
-                  </CardParagraph>
-                </CardContent>
-              </PersonCard>
-            ))}
-        </PersonsWrapper>
-      </Container>
+      {data ? (
+        <>
+          <Navbar />
+          <Container>
+            <Banner title={episode?.name} subtitle={episode?.air_date} />
+            <PageTitleWrapper>
+              <PageTitle>Personagens</PageTitle>
+            </PageTitleWrapper>
+            <PersonsWrapper>
+              {characters &&
+                characters.map((item) => (
+                  <PersonCard key={item.id}>
+                    <img src={item.image} alt='card' />
+                    <CardContent>
+                      <CardTitle>{item.name}</CardTitle>
+                      <CardParagraph>
+                        {item.species}, {item.status}.
+                      </CardParagraph>
+                    </CardContent>
+                  </PersonCard>
+                ))}
+            </PersonsWrapper>
+          </Container>
+        </>
+      ) : (
+        <LoadingComponent />
+      )}
     </>
   );
 };

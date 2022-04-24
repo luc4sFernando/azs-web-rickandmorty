@@ -39,4 +39,18 @@ export const EPISODIE_QUERY = `query($id: ID!){
     }
   }`;
 
+export const EPISODIE_FETCH = `query($filter: FilterEpisode!){
+    episodes(filter: $filter){
+      results{
+        id
+        episode
+        name
+        air_date
+        characters{
+          name
+        }
+      }
+      }
+    }`;
+
 export default fetcher;

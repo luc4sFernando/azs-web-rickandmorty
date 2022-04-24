@@ -1,8 +1,7 @@
 import { ControlContainer, Wrapper, PageTitle } from './style';
 import { MdNavigateNext } from 'react-icons/md';
 import PropTypes from 'prop-types';
-const PaginationControl = ({ count, setPageNumber, pages }) => {
-  console.log(count);
+const PaginationControl = ({ setPageNumber, pages }) => {
   return (
     <ControlContainer>
       <PageTitle>Episódios</PageTitle>

@@ -21,7 +21,7 @@ const List = ({ episodes }) => {
   const handleClick = (e, id) => {
     navigate(`/episodes/${id}`);
   };
-  console.log(favorites);
+
   const removeFavorite = (episode) => {
     const filtredFavorites = favorites.filter((item) => item.id !== episode.id);
     localStorage.setItem('favorites', JSON.stringify(filtredFavorites));

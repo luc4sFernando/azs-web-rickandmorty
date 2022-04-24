@@ -4,8 +4,9 @@ import { EPISODIES_QUERY } from '../utils/requests';
 import List from '../components/List';
 import Navbar from '../components/Navbar';
 import PaginationControl from '../components/PaginationControl';
-import Loading from '../components/Loading';
+import LoadingComponent from '../components/Loading/';
 import useSwr from '../utils/useSwr';
+import Banner from '../components/Banner';
 
 const Container = styled.div`
   width: 100%;
@@ -24,22 +25,21 @@ const Episodes = () => {
 
   return (
     <>
-      <Container>
-        <Navbar />
+      {data ? (
+        <Container>
+          <Navbar />
+          <Banner imageUrl='/pic4.jpg' />
 
-        {results?.length > 0 ? (
-          <>
-            <PaginationControl
-              count={1}
-              setPageNumber={setPageNumber}
-              pages={pages}
-            />
-            <List episodes={results} />
-          </>
-        ) : (
-          <Loading />
-        )}
-      </Container>
+          <PaginationControl
+            count={1}
+            setPageNumber={setPageNumber}
+            pages={pages}
+          />
+          <List episodes={results} />
+        </Container>
+      ) : (
+        <LoadingComponent />
+      )}
     </>
   );
 };

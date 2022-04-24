@@ -1,17 +1,26 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import styled from 'styled-components';
-import Banner from '../components/Banner';
-
+import Backdrop from '../components/Backdrop';
+import { useSearch } from '../components/hooks/searchContext';
+import Navbar from '../components/Navbar';
+import List from '../components/List';
 const HomeContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: black;
   color: white;
 `;
 const Home = () => {
+  const search = useSearch();
+
   return (
     <HomeContainer>
-      <Banner />
+      <Navbar />
+      {search.episodes?.length > 0 ? (
+        <List episodes={search.episodes} />
+      ) : (
+        <Backdrop />
+      )}
     </HomeContainer>
   );
 };

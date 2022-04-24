@@ -7,8 +7,9 @@ const fetcher = (query, variables = {}) =>
   axios.post(END_POINT, { query, variables }).then((res) => res.data);
 
 const useSwr = (query, variables) => {
-  console.log(variables);
-  const { data, error } = useSWR([query, variables], fetcher);
+  const { data, error } = useSWR([query, variables], fetcher, {
+    fallback: true,
+  });
 
   return [data, error];
 };
