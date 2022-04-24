@@ -14,8 +14,18 @@ export const Wrapper = styled.div`
   max-width: 600px;
   gap: 10px;
 `;
-export const Title = styled.h1`
-  font-size: 2.5rem;
-  color: white;
-  font-weight: 600;
+
+export const PageTitle = styled.h2`
+  font-family: 'Roboto', sans-serif;
+  font-size: 3.2rem;
+  color: black !important;
+  width: 200px;
+
+  &::before {
+    height: 20px;
+    content: '';
+    padding: 0px 3px;
+    background-color: #f5c519;
+    margin-right: 05px;
+  }
 `;

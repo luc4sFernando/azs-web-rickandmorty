@@ -5,7 +5,7 @@ const hidenbutton = keyframes`
 from {
  opacity: 0;
 }
-80% {
+85% {
   opacity: 0;
 }
 to {
@@ -37,18 +37,11 @@ export const BannerContentWrapper = styled.div`
   justify-content: space-between;
   min-height: 790px;
 `;
-export const ImageWrapper = styled.div`
-  width: 50%;
-  display: flex;
-`;
-export const BannerPicture = styled.img`
-  width: 550px;
-`;
 
 export const BannerTextWrapper = styled.div`
   display: flex;
   justify-content: center;
-  width: 40%;
+  width: 50%;
   flex-direction: column;
 `;
 export const BannerTitle = styled.h2`
@@ -70,7 +63,7 @@ export const BannerDescription = styled.p`
 `;
 export const BannerICon = styled.div`
   width: 10px;
-  height: 43%;
+  height: 50%;
   background-color: white;
   margin-right: 10px;
 `;
@@ -85,7 +78,7 @@ export const BannerButton = styled(Link)`
   width: 200px;
   height: 40px;
   font-size: 1.5rem;
-  animation: ${hidenbutton} 5s;
+  animation: ${hidenbutton} 6s;
   border-radius: 15px;
   &:hover {
     transition: all 0.5s;

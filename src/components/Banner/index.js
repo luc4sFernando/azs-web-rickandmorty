@@ -26,7 +26,7 @@ const Banner = () => {
               <BannerDescription>
                 <Typed
                   strings={[
-                    'Bem vindo, aqui você fica sabendo tudo sobre rick and morty',
+                    'Bem vindo, aqui você fica sabendo tudo sobre os episódios de rick and morty.',
                   ]}
                   typeSpeed={50}
                 />

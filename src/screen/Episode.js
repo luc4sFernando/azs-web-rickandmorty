@@ -21,24 +21,20 @@ const Banner = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 `;
 const TitleWrapper = styled.div``;
 
-const Label = styled.p`
-  font-size: 2rem;
-  color: #f7bf31;
-  margin: 0;
-  font-style: italic;
-`;
 const Title = styled.h1`
-  font-size: 3.4rem;
+  font-size: 8.4rem;
   color: white;
-  margin: 10px;
+  margin: 0 20px 0 0;
+  font-family: 'Helvetica';
+  letter-spacing: -2px;
 `;
 const Subtitle = styled.p`
   font-size: 1.8rem;
-  color: white;
-  margin: 10px;
+  color: gray;
 `;
 
 const PersonsWrapper = styled.div`
@@ -62,7 +58,23 @@ const PersonCard = styled.div`
     border-radius: 50%;
   }
 `;
-
+const CardContent = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 15px;
+`;
+const CardTitle = styled.h2`
+  font-size: 1.8rem;
+  color: black;
+  font-weight: 600;
+  margin-bottom: 05px;
+`;
+const CardParagraph = styled.p`
+  font-size: 1.5rem;
+  color: gray;
+  margin: 0;
+`;
 const PageTitle = styled.h2`
   font-family: 'Roboto', sans-serif;
   font-size: 3.2rem;
@@ -95,13 +107,10 @@ const Episode = () => {
       <Container>
         <Banner>
           <TitleWrapper>
-            <Label>NOME DO EPISÓDIO</Label>
             <Title>{data?.data.episode.name}</Title>
-            <Label>INFO</Label>
             <Subtitle>
               {data?.data.episode.episode} | {data?.data.episode.air_date}.
             </Subtitle>
-            <Subtitle></Subtitle>
           </TitleWrapper>
         </Banner>
         <PageTitleWrapper>
@@ -112,9 +121,12 @@ const Episode = () => {
             episode.map((item) => (
               <PersonCard key={item.id}>
                 <img src={item.image} alt='card' />
-                <h2>{item.name}</h2>
-                <p>{item.species}</p>
-                <p>{item.status}</p>
+                <CardContent>
+                  <CardTitle>{item.name}</CardTitle>
+                  <CardParagraph>
+                    {item.species}, {item.status}.
+                  </CardParagraph>
+                </CardContent>
               </PersonCard>
             ))}
         </PersonsWrapper>
