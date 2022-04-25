@@ -13,8 +13,4 @@ export const Title = styled.h2`
     margin-right: 05px;
   }
 `;
-export const PageTitleWrapper = styled.div`
-  width: 100%;
-  max-width: 1280px;
-  margin: 150px auto 0;
-`;
+export const PageTitleWrapper = styled.div``;

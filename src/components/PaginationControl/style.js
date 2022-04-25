@@ -7,6 +7,21 @@ export const ControlContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   margin: 0 auto;
+  @media (max-width: 575.98px) {
+    padding: 0 40px;
+    width: auto;
+  }
+  @media (min-width: 576px) and (max-width: 829.99px) {
+    justify-content: space-around;
+    width: 100%;
+  }
+  @media (min-width: 830px) and (max-width: 990px) {
+    padding: 0 40px;
+  }
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    width: 100%;
+    padding: 0 40px;
+  }
 `;
 export const Wrapper = styled.div`
   display: flex;

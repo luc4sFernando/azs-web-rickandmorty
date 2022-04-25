@@ -8,11 +8,24 @@ export const ListContainer = styled.div`
 `;
 export const ItemsWrapper = styled.div`
   width: 100%;
-  max-width: 1280px;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  max-width: 1290px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   gap: 10px;
   align-content: center;
+  @media (max-width: 575.98px) {
+    justify-content: center;
+  }
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    justify-content: center;
+  }
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    justify-content: center;
+  }
+  @media (min-width: 992px) and (max-width: 1299.98px) {
+    justify-content: center;
+  }
 `;
 export const Item = styled.div`
   width: 390px;

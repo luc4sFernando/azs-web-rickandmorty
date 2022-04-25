@@ -6,12 +6,21 @@ import useSwr from '../utils/useSwr';
 import { EPISODIE_QUERY } from '../utils/requests';
 import LoadingComponent from '../components/Loading/';
 import Banner from '../components/Banner';
+import PageTitle from '../components/PageTitle';
 
 const Container = styled.div`
   width: 100%;
   background-color: white;
+  max-width: 1290px;
+  margin: 0 auto;
 `;
-
+const PageTitleContainer = styled.div`
+  width: 100%;
+  padding: 0 30px;
+  @media (min-width: 1199px) {
+    padding: 0;
+  }
+`;
 const PersonsWrapper = styled.div`
   width: 100%;
   max-width: 1290px;
@@ -19,14 +28,17 @@ const PersonsWrapper = styled.div`
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  @media (min-width: 1199px) {
+    justify-content: flex-start;
+  }
 `;
 const PersonCard = styled.div`
-  width: 280px;
   margin: 20px 10px;
   color: black;
   display: flex;
   align-items: center;
-
+  width: 200px;
   img {
     object-fit: contain;
     width: 110px;
@@ -50,25 +62,6 @@ const CardParagraph = styled.p`
   color: gray;
   margin: 0;
 `;
-const PageTitle = styled.h2`
-  font-family: 'Roboto', sans-serif;
-  font-size: 3.2rem;
-  color: black;
-  width: 200px;
-
-  &::before {
-    height: 20px;
-    content: '';
-    padding: 0px 3px;
-    background-color: #f5c519;
-    margin-right: 05px;
-  }
-`;
-const PageTitleWrapper = styled.div`
-  width: 100%;
-  max-width: 1280px;
-  margin: 0 auto;
-`;
 
 const Episode = () => {
   const params = useParams();
@@ -83,9 +76,9 @@ const Episode = () => {
           <Navbar />
           <Container>
             <Banner title={episode?.name} subtitle={episode?.air_date} />
-            <PageTitleWrapper>
+            <PageTitleContainer>
               <PageTitle>Personagens</PageTitle>
-            </PageTitleWrapper>
+            </PageTitleContainer>
             <PersonsWrapper>
               {characters &&
                 characters.map((item) => (

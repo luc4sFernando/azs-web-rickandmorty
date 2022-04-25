@@ -18,6 +18,10 @@ export const Picture = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  @media (max-width: 575.98px) {
+    background-position: center;
+    background-size: cover;
+  }
 `;
 export const TitleWrapper = styled.div``;
 

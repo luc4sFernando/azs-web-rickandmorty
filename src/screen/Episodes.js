@@ -29,7 +29,6 @@ const Episodes = () => {
         <Container>
           <Navbar />
           <Banner imageUrl='/pic4.jpg' />
-
           <PaginationControl
             count={1}
             setPageNumber={setPageNumber}

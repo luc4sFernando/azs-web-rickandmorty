@@ -16,12 +16,12 @@ const Home = () => {
   const foundEpisodes = useSearch();
   const [search] = useSearchParams();
   const val = search.get('search');
-
+  const EPISODE_FOR_NAME = val && foundEpisodes.episodes.length > 0;
   return (
     <>
       <Navbar />
       <HomeContainer>
-        {val && foundEpisodes.episodes.length > 0 ? (
+        {EPISODE_FOR_NAME ? (
           <>
             <PageTitle>Favoritos</PageTitle>
             <List episodes={foundEpisodes.episodes} />

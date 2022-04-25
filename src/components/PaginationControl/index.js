@@ -1,4 +1,5 @@
-import { ControlContainer, Wrapper, PageTitle } from './style';
+import { ControlContainer, Wrapper } from './style';
+import PageTitle from '../PageTitle';
 import { MdNavigateNext } from 'react-icons/md';
 import PropTypes from 'prop-types';
 const PaginationControl = ({ setPageNumber, pages }) => {

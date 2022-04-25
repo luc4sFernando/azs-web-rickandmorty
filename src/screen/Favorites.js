@@ -6,10 +6,9 @@ import Navbar from '../components/Navbar';
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin-top: 100px;
 `;
 const Favorites = () => {
   const [preferences] = usePreferences();

@@ -18,6 +18,23 @@ export const BannerContainer = styled.div`
   background-image: url(/pic3.jpg);
   background-position: center top;
   background-size: cover;
+  background-repeat: no-repeat;
+  @media (max-width: 575.98px) {
+    background-position: -900px;
+    background-size: cover;
+  }
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    background-position: -750px;
+    background-size: cover;
+  }
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    background-position: -650px;
+    background-size: cover;
+  }
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    background-position: -550px;
+    background-size: cover;
+  }
 `;
 export const BannerColor = styled.div`
   width: 100%;
@@ -36,6 +53,10 @@ export const BannerContentWrapper = styled.div`
   position: relative;
   justify-content: space-between;
   min-height: 790px;
+
+  @media (max-width: 575.98px) {
+    justify-content: space-between;
+  }
 `;
 
 export const BannerTextWrapper = styled.div`
@@ -43,6 +64,21 @@ export const BannerTextWrapper = styled.div`
   justify-content: center;
   width: 50%;
   flex-direction: column;
+  @media (max-width: 575.98px) {
+    margin-left: 40px;
+  }
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    margin-left: 40px;
+  }
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    margin-left: 40px;
+  }
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    margin-left: 40px;
+  }
+  @media (min-width: 1200px) and (max-width: 1290px) {
+    margin: 40px;
+  }
 `;
 export const BannerTitle = styled.h2`
   font-family: 'Barlow', sans-serif;
@@ -60,12 +96,23 @@ export const BannerDescription = styled.p`
   font-size: 1.6rem;
   font-weight: 300;
   margin-bottom: 20px;
+  align-items: center;
 `;
 export const BannerICon = styled.div`
   width: 10px;
   height: 50%;
   background-color: white;
   margin-right: 10px;
+  @media (max-width: 575.98px) {
+    height: 62%;
+    width: 14px;
+  }
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    height: 56%;
+  }
+  @media (min-width: 1200px) {
+    height: 50%;
+  }
 `;
 
 export const BannerButton = styled(Link)`
