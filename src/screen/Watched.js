@@ -11,16 +11,15 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const Favorites = () => {
+const Watched = () => {
   const [preferences] = usePreferences();
 
-  console.log(preferences.favorites.length);
   return (
     <>
       <Navbar />
       <Container>
-        {preferences.favorites.length > 0 ? (
-          <List episodes={preferences.favorites} />
+        {preferences.watched.length > 0 ? (
+          <List episodes={preferences.watched} />
         ) : (
           <h1>Lista vazia</h1>
         )}
@@ -29,4 +28,4 @@ const Favorites = () => {
   );
 };
 
-export default Favorites;
+export default Watched;

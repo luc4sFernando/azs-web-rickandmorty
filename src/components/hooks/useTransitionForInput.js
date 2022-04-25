@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 
 const useTransitionForInput = (active, setSearch) => {
   const inputRef = useRef(null);
+
   useEffect(() => {
     if (active) {
       inputRef.current.style.width = '150px';

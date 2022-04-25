@@ -1,8 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import MyContext from '../../utils/favoritesContext';
+
 import Search from '../Search';
+import { usePreferences } from '../hooks/usePreferences';
 
 const NavContainer = styled.div`
   width: 100%;
@@ -30,7 +31,7 @@ const NavLink = styled(Link)`
   cursor: pointer;
 `;
 const Navbar = () => {
-  const [favorites] = useContext(MyContext);
+  const [preferences] = usePreferences();
 
   return (
     <NavContainer>
@@ -39,8 +40,10 @@ const Navbar = () => {
           <Brand src='/b1.png' alt='brand' />
         </NavLink>
         <NavLink to='/episodes'>Episódios</NavLink>
-        <NavLink to='/favorites'>Lista de Favoritos {favorites.length}</NavLink>
-        <NavLink to='#'>Episódios Assistidos</NavLink>
+        <NavLink to='/favorites'>
+          Lista de Favoritos {preferences?.favorites.length}
+        </NavLink>
+        <NavLink to='/watched'>Episódios Assistidos</NavLink>
         <Search />
       </Header>
     </NavContainer>

@@ -1,7 +1,6 @@
+/* eslint-disable no-unused-vars */
 import PropTypes from 'prop-types';
 import {
-  IconBackground,
-  IconsContainer,
   Item,
   ItemsWrapper,
   Label,
@@ -11,31 +10,17 @@ import {
   Title,
   TitleWrapper,
 } from './style';
-import { AiOutlinePlus, AiOutlineCheck } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import MyContext from '../../utils/favoritesContext';
+import PreferenceIcons from '../PreferenceIcon';
+import { usePreferences } from '../hooks/usePreferences';
+import useHandlePreferences from '../hooks/useHandlePreferences';
 const List = ({ episodes }) => {
   const navigate = useNavigate();
-  const [favorites, setFavorites] = useContext(MyContext);
+  const [preferences, setPreferences] = usePreferences();
+  const [prefe, setPrefe, add, remove, addWatched, removeWatched] =
+    useHandlePreferences();
   const handleClick = (e, id) => {
     navigate(`/episodes/${id}`);
-  };
-
-  const removeFavorite = (episode) => {
-    const filtredFavorites = favorites.filter((item) => item.id !== episode.id);
-    localStorage.setItem('favorites', JSON.stringify(filtredFavorites));
-    return setFavorites(filtredFavorites);
-  };
-
-  const addFavorite = (episode) => {
-    let favoritesList = [];
-
-    if (!favorites.find((item) => item.id === episode.id)) {
-      favoritesList = [...favorites, episode];
-      localStorage.setItem('favorites', JSON.stringify(favoritesList));
-      return setFavorites(favoritesList);
-    }
   };
 
   return (
@@ -43,17 +28,14 @@ const List = ({ episodes }) => {
       <ItemsWrapper>
         {episodes.map((episode) => (
           <Item key={episode.id}>
-            <IconsContainer>
-              {favorites.find((item) => item.id === episode.id) ? (
-                <IconBackground color onClick={() => removeFavorite(episode)}>
-                  <AiOutlineCheck size='20px' />
-                </IconBackground>
-              ) : (
-                <IconBackground onClick={() => addFavorite(episode)}>
-                  <AiOutlinePlus size='20px' />
-                </IconBackground>
-              )}
-            </IconsContainer>
+            <PreferenceIcons
+              addFavorite={add}
+              episode={episode}
+              preferences={preferences}
+              removeFavorite={remove}
+              addWatched={addWatched}
+              removeWatched={removeWatched}
+            />
             <TitleWrapper onClick={(e) => handleClick(e, episode.id)}>
               <Label>{episode.episode}</Label>
               <Title>{episode.name}</Title>

@@ -8,6 +8,7 @@ import { useSearch } from '../hooks/useSearch';
 import useDebounce from '../hooks/useDebounce';
 import { Input, InputWrapper, Label } from './style';
 import useTransitionForInput from '../hooks/useTransitionForInput';
+
 const Search = () => {
   const [value, setValue] = useState(null);
   const [search, setSearch] = useSearchParams();
@@ -36,7 +37,6 @@ const Search = () => {
   const handleDebounce = (event) => {
     onChange(event);
     db(event.target.value);
-    console.log(event.target.value);
   };
   const handleActiveInputWrapper = () => {
     setActive((prev) => !prev);

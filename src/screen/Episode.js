@@ -72,12 +72,10 @@ const PageTitleWrapper = styled.div`
 
 const Episode = () => {
   const params = useParams();
-
   const [data] = useSwr(EPISODIE_QUERY, { id: params.id });
-
   const characters = data?.data.episode.characters;
   const episode = data?.data.episode;
-  console.log(episode);
+
   return (
     <>
       {data ? (
