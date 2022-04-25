@@ -2,22 +2,25 @@
 import React from 'react';
 import styled from 'styled-components';
 import Backdrop from '../components/Backdrop';
-import { useSearch } from '../components/hooks/searchContext';
+import { useSearch } from '../components/hooks/useSearch';
 import Navbar from '../components/Navbar';
 import List from '../components/List';
+import { useSearchParams } from 'react-router-dom';
 const HomeContainer = styled.div`
   width: 100vw;
   height: 100vh;
   color: white;
 `;
 const Home = () => {
-  const search = useSearch();
+  const foundEpisodes = useSearch();
+  const [search, setSearchParams] = useSearchParams();
+  const val = search.get('search');
 
   return (
     <HomeContainer>
       <Navbar />
-      {search.episodes?.length > 0 ? (
-        <List episodes={search.episodes} />
+      {val && foundEpisodes.episodes?.length > 0 ? (
+        <List episodes={foundEpisodes.episodes} />
       ) : (
         <Backdrop />
       )}

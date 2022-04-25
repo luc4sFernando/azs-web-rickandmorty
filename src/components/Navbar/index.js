@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import MyContext from '../../utils/favoritesContext';
 import Search from '../Search';
+
 const NavContainer = styled.div`
   width: 100%;
   display: flex;
@@ -30,6 +31,7 @@ const NavLink = styled(Link)`
 `;
 const Navbar = () => {
   const [favorites] = useContext(MyContext);
+
   return (
     <NavContainer>
       <Header>

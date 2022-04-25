@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { SearchProvider } from './components/hooks/searchContext';
+import { SearchProvider } from './components/hooks/useSearch';
 import Episode from './screen/Episode';
 import Episodes from './screen/Episodes';
 import Favorites from './screen/Favorites';
