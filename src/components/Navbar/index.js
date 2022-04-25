@@ -16,7 +16,7 @@ const NavContainer = styled.div`
   position: fixed;
   top: 0;
   z-index: 999;
-  @media (max-width: 900px) {
+  @media (max-width: 1280px) {
     justify-content: flex-start;
     padding-left: 40px;
     height: 70px;
@@ -49,6 +49,7 @@ const HidenMenu = styled.div`
   gap: 20px;
   font-size: 2rem;
   padding-top: 50px;
+  z-index: 999;
 `;
 const Navbar = () => {
   const [preferences] = usePreferences();
@@ -59,7 +60,11 @@ const Navbar = () => {
     <NavContainer>
       {size < 900 && (
         <>
-          <HiMenuAlt2 size='45px' onClick={() => setActive((prev) => !prev)} />
+          <HiMenuAlt2
+            size='45px'
+            color='black'
+            onClick={() => setActive((prev) => !prev)}
+          />
           {active && (
             <HidenMenu>
               <NavLink to='/episodes'>Episódios</NavLink>

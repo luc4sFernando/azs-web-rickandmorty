@@ -32,7 +32,7 @@ export const BannerContainer = styled.div`
     background-size: cover;
   }
   @media (min-width: 992px) and (max-width: 1199.98px) {
-    background-position: -550px;
+    background-position: -450px;
     background-size: cover;
   }
 `;
