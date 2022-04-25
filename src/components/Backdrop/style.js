@@ -20,7 +20,7 @@ export const BannerContainer = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   @media (max-width: 575.98px) {
-    background-position: -900px;
+    background-position: -800px;
     background-size: cover;
   }
   @media (min-width: 576px) and (max-width: 767.98px) {
@@ -28,11 +28,7 @@ export const BannerContainer = styled.div`
     background-size: cover;
   }
   @media (min-width: 768px) and (max-width: 991.98px) {
-    background-position: -650px;
-    background-size: cover;
-  }
-  @media (min-width: 992px) and (max-width: 1199.98px) {
-    background-position: -450px;
+    background-position: -550px;
     background-size: cover;
   }
 `;
